@@ -7,6 +7,7 @@ import 'package:it_cat/View/home/list/home_list_page.dart';
 import 'package:it_cat/View/home/text/home_text_page.dart';
 import 'package:it_cat/View/home/text_field/home_text_field_page.dart';
 
+import 'alert_dialog/home_alert_dialog_page.dart';
 import 'container/home_container_page.dart';
 import 'image/home_image_page.dart';
 
@@ -28,6 +29,7 @@ class _HomeControllerPageState extends State<HomeControllerPage> {
     'Image',
     'Container',
     'ListView-Container',
+    'AlertDialog',
   ];
   @override
   Widget build(BuildContext context) {
@@ -73,6 +75,10 @@ class _HomeControllerPageState extends State<HomeControllerPage> {
               return HomeListPage();
             }));
           }else if(index == 6){
+            Navigator.push(context, MaterialPageRoute(builder: (context){
+              return HomeAlertDialogPage();
+            }));
+          }else if(index == 7){
             Navigator.push(context, MaterialPageRoute(builder: (context){
               return HomeListPage();
             }));

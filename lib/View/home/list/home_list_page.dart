@@ -17,6 +17,7 @@ class _HomeListPageState extends CatBaseWidgetPageState<HomeListPage> {
       CombinationItem('container'),
       CombinationItem('column'),
       CombinationItem('container+row+column'),
+      CombinationItem('stack+positioned'),
     ]),
   ];
   @override
@@ -63,9 +64,12 @@ class _HomeListPageState extends CatBaseWidgetPageState<HomeListPage> {
                popView(HomeContainerRowColumnPage(pageType: HomePageType.column,));
              }else if(element.name == 'container'){
                popView(HomeContainerRowColumnPage(pageType: HomePageType.container,));
+             }else if(element.name == 'stack+positioned'){
+               popView(HomeContainerRowColumnPage(pageType: HomePageType.stack,));
              }else {
                popView(HomeContainerRowColumnPage(pageType: HomePageType.all,));
              }
+
             },
           ),
 

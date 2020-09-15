@@ -8,6 +8,7 @@ enum HomePageType{
   column,
   container,
   all,
+  stack,
 }
 
 class HomeContainerRowColumnPage extends CatBaseWidgetPage {
@@ -35,6 +36,8 @@ class _HomeContainerRowColumnPage extends CatBaseWidgetPageState<HomeContainerRo
         title = 'column';
       }else if(widget.pageType.index == 2){
         title = 'container';
+      }else if(widget.pageType.index == 4){
+        title = 'stack';
       }else{
         title = 'Container+Row+Column';
       }
@@ -48,14 +51,13 @@ class _HomeContainerRowColumnPage extends CatBaseWidgetPageState<HomeContainerRo
       return _addPageAllView();
     }else{
       if(widget.pageType.index == 0){
-        title = 'row';
         return _addPageRowView();
       }else if(widget.pageType.index == 1){
-        title = 'column';
         return _addPageColumnView();
       }else if(widget.pageType.index == 2){
-        title = 'container';
         return _addPageContainerView();
+      }else if(widget.pageType.index == 4){
+        return _addPageStackView();
       }else {
         return _addPageAllView();
       }
@@ -216,6 +218,89 @@ class _HomeContainerRowColumnPage extends CatBaseWidgetPageState<HomeContainerRo
             boxShadow: [BoxShadow(color: Colors.grey, offset: Offset(5, 5))]
         ),
       ),
+    );
+  }
+
+  Widget _addPageStackView() {
+    return Stack(
+      // StackFit.expand的效果优先
+      alignment: AlignmentDirectional.center,
+      children: <Widget>[
+        Container(
+          width: size.width,
+          height: size.height,
+          color: Colors.red,
+        ),
+        Container(
+          width: size.width-50,
+          height: size.height-50,
+          color: Colors.blue,
+        ),
+        Container(
+          width: size.width-100,
+          height: size.height-100,
+          color: Colors.green,
+          child: Stack(
+            alignment: AlignmentDirectional.bottomCenter,
+            children: <Widget>[
+              Container(
+                width: 100,
+                height: 100,
+                color: Colors.red,
+              ),
+              Container(
+                width: 90,
+                height: 90,
+                color: Colors.blue,
+              ),
+              Container(
+                width: 80,
+                height: 80,
+                color: Colors.green,
+              ),
+            ],
+          ),
+        ),
+        Positioned(
+          top: 100.0,
+          left: 0,
+          right: 20,
+          child: Container(
+            color: Colors.blue,
+            child: Text("第一个组件"),
+          ),
+        ),
+        Positioned(
+          top: 200,
+          right: 100,
+          child: Container(
+            color: Colors.yellow,
+            child: Text("第二个组件"),
+          ),
+        ),
+        Positioned(
+          left: 100.0,
+          child: Container(
+            color: Colors.red,
+            child: DecoratedBox(
+                decoration: BoxDecoration(
+                    gradient: LinearGradient(colors:[Colors.red,Colors.orange[700]]), //背景渐变
+                    borderRadius: BorderRadius.circular(3.0), //3像素圆角
+                    boxShadow: [ //阴影
+                      BoxShadow(
+                          color:Colors.black54,
+                          offset: Offset(2.0,2.0),
+                          blurRadius: 4.0
+                      )
+                    ]
+                ),
+                child: Padding(padding: EdgeInsets.symmetric(horizontal: 80.0, vertical: 18.0),
+                  child: Text("第三个组件", style: TextStyle(color: Colors.white),),
+                )
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

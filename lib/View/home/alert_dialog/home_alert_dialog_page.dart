@@ -37,16 +37,47 @@ class _HomeAlertDialogPageState extends CatBaseWidgetPageState<HomeAlertDialogPa
             child: Text('OptimizeLoading弹窗',style: _textStyle,),onPressed: (){  showOptimizeLoadingDialog(); },),
 
           OutlineButton( borderSide:  BorderSide(color: Colors.red), shape: _border,
-            child: Text('日历弹窗',style: _textStyle,),onPressed: (){  showOptimizeLoadingDialog(); },),
+            child: Text('日历弹窗',style: _textStyle,),onPressed: (){  showDatePickerView(); },),
 
           OutlineButton( borderSide:  BorderSide(color: Colors.red), shape: _border,
-            child: Text('OptimizeLoading弹窗',style: _textStyle,),onPressed: (){  showOptimizeLoadingDialog(); },),
+            child: Text('iOS日历弹窗',style: _textStyle,),onPressed: (){  showDatePickerViewIos(); },),
         ],
       ),
     );
   }
-  void showDatePicker(){
-
+  Future<DateTime> showDatePickerViewIos(){
+    var date = DateTime.now();
+    return showCupertinoModalPopup(
+      context: context,
+      builder: (ctx) {
+        return SizedBox(
+          height: 200,
+          child: CupertinoDatePicker(
+            backgroundColor: Colors.white,
+            mode: CupertinoDatePickerMode.dateAndTime,
+            minimumDate: date,
+            maximumDate: date.add(
+              Duration(days: 30),
+            ),
+            maximumYear: date.year + 1,
+            onDateTimeChanged: (DateTime value) {
+              print(value);
+            },
+          ),
+        );
+      },
+    );
+  }
+  void showDatePickerView(){
+    var date = DateTime.now();
+    showDatePicker(
+      context: context,
+      initialDate: date,
+      firstDate: date,
+      lastDate: date.add( //未来30天可选
+        Duration(days: 30),
+      ),
+    );
   }
 
   void showAlertDialog(){

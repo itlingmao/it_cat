@@ -1,17 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:it_cat/Tools/tools_base_page.dart';
 import 'package:it_cat/View/home/home_controller_page.dart';
 
 import 'find/find_controller_page.dart';
 import 'mine/mine_controller_page.dart';
 
-class ControllerPage extends StatefulWidget {
+class ControllerPage extends CatBaseWidgetPage {
   @override
-  _ControllerPageState createState() => _ControllerPageState();
+  _ControllerPageState getState() => _ControllerPageState();
 
 }
 
-class _ControllerPageState extends State<ControllerPage> {
+class _ControllerPageState extends CatBaseWidgetPageState<ControllerPage> {
 
 
   var _appBarTitles = ['首页', '发现', '我的'];
@@ -24,17 +25,21 @@ class _ControllerPageState extends State<ControllerPage> {
      MineControllerPage(),
    ];
 
+   @override
+  void initState() {
+    super.initState();
+    title = '首页';
+    isBuild = true;
+  }
+
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text(_appBarTitles[_tabIndex]),
-        ),
-        body: _pageList[_tabIndex],
-        bottomNavigationBar: _bottomView(),
+  Widget buildWidget(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(_appBarTitles[_tabIndex]),
       ),
+      body: _pageList[_tabIndex],
+      bottomNavigationBar: _bottomView(),
     );
   }
   Widget _bottomView(){

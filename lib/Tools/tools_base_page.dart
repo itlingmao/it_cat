@@ -22,11 +22,23 @@ abstract class CatBaseWidgetPageState<T extends CatBaseWidgetPage> extends State
 
   @override
   Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: isBuild == false ? _isBuildDefault(context)
+          : buildWidget(context),
+    );
+
+  }
+
+  Widget _isBuildDefault(BuildContext context){
     size = MediaQuery.of(context).size;
-    return isBuild == false ? Scaffold(
+    return Scaffold(
       appBar: buildAppBar(),
-      body: buildWidget(context),)
-    : buildWidget(context);
+      body: buildWidget(context),);
+  }
+  Widget unBuild(BuildContext context){
+    size = MediaQuery.of(context).size;
+    return buildWidget(context);
   }
 
 

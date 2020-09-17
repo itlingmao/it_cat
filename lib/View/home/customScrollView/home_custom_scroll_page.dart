@@ -28,7 +28,7 @@ class _HomeCustomScrollPageState extends CatBaseWidgetPageState<HomeCustomScroll
               flexibleSpace: FlexibleSpaceBar(
                 title: const Text('Demo'),
                 background: Image.asset(
-                  "ic_hot_spots.png", fit: BoxFit.cover,),
+                  "assets/images/wz.jpg", fit: BoxFit.cover,),
               ),
             ),
 
@@ -50,7 +50,7 @@ class _HomeCustomScrollPageState extends CatBaseWidgetPageState<HomeCustomScroll
                       child: new Text('grid item $index'),
                     );
                   },
-                  childCount: 20,
+                  childCount: 10,
                 ),
               ),
             ),
@@ -66,7 +66,7 @@ class _HomeCustomScrollPageState extends CatBaseWidgetPageState<HomeCustomScroll
                       child: new Text('list item $index'),
                     );
                   },
-                  childCount: 50 //50个列表项
+                  childCount: 5 //50个列表项
               ),
             ),
           ],

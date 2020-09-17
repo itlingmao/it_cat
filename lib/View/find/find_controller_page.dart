@@ -7,7 +7,7 @@ class FindControllerPage extends CatBaseWidgetPage {
 }
 
 class _FindControllerPageState extends CatBaseWidgetPageState<FindControllerPage> {
-
+  // http://api.bjxlxd.com/api/registerAgreement
   @override
   void initState() {
     super.initState();

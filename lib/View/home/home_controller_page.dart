@@ -3,6 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:it_cat/View/home/button/home_button_page.dart';
 import 'package:it_cat/View/home/container/home_container_row_column_page.dart';
+import 'package:it_cat/View/home/customScrollView/home_custom_scroll_page.dart';
+import 'package:it_cat/View/home/gridView/home_staggered_grid_view_page.dart';
 import 'package:it_cat/View/home/list/home_list_page.dart';
 import 'package:it_cat/View/home/text/home_text_page.dart';
 import 'package:it_cat/View/home/text_field/home_text_field_page.dart';
@@ -10,6 +12,7 @@ import 'package:it_cat/View/home/wrap/home_wrap_page.dart';
 
 import 'alert_dialog/home_alert_dialog_page.dart';
 import 'container/home_container_page.dart';
+import 'gridView/home_grid_view_page.dart';
 import 'image/home_image_page.dart';
 import 'listView/home_list_view_page.dart';
 
@@ -34,6 +37,9 @@ class _HomeControllerPageState extends State<HomeControllerPage> {
     'AlertDialog',
     'wrap',
     'ListView',
+    'GridView',
+    'staggeredGridView',
+    'customScrollView'
   ];
   @override
   Widget build(BuildContext context) {
@@ -89,6 +95,18 @@ class _HomeControllerPageState extends State<HomeControllerPage> {
           }else if(index == 8){
             Navigator.push(context, MaterialPageRoute(builder: (context){
               return HomeListViewPage();
+            }));
+          }else if(index == 9){
+            Navigator.push(context, MaterialPageRoute(builder: (context){
+              return HomeGridViewPage();
+            }));
+          }else if(index == 10){
+            Navigator.push(context, MaterialPageRoute(builder: (context){
+              return HomeSGridViewPage();
+            }));
+          }else if(index == 11){
+            Navigator.push(context, MaterialPageRoute(builder: (context){
+              return HomeCustomScrollPage();
             }));
           }
 

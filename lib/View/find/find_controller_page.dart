@@ -17,7 +17,7 @@ class _FindControllerPageState extends CatBaseWidgetPageState<FindControllerPage
   @override
   Widget buildWidget(BuildContext context) {
     return Container(
-      child: Text('天气不错'),
+      child: Text('用来写组合控件的地方！'),
     );
   }
 }

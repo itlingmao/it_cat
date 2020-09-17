@@ -16,6 +16,7 @@ class _HomeListViewPageState extends CatBaseWidgetPageState<HomeListViewPage> {
   @override
   void initState() {
     super.initState();
+    title = 'ListView';
     _retrieveData();
   }
   @override

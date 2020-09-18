@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:it_cat/Tools/tools_base_page.dart';
 
 class FindControllerPage extends CatBaseWidgetPage {
@@ -16,8 +17,10 @@ class _FindControllerPageState extends CatBaseWidgetPageState<FindControllerPage
   }
   @override
   Widget buildWidget(BuildContext context) {
-    return Container(
-      child: Text('用来写组合控件的地方！'),
+    return Material(
+      child: Container(
+        child: Text('用来写组合控件的地方！'),
+      ),
     );
   }
 }

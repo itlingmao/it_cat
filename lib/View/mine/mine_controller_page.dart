@@ -18,30 +18,32 @@ class _MineControllerPageState extends CatBaseWidgetPageState<MineControllerPage
   }
   @override
   Widget buildWidget(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(10),
-      child: Column(
-        // mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Container(alignment: Alignment.center,
-              child: Text('本产品为Cat开发',style: TextStyle(fontWeight: FontWeight.w800),)),
-          SizedBox(height: 14,),
-          Text('项目已在GitHub上面开源',style: TextStyle(fontWeight: FontWeight.w300),),
-          Row(
-            children: <Widget>[
-              Text('https://github.com/itlingmao/it_cat.git',style: TextStyle(fontWeight: FontWeight.w300),),
-              SizedBox(width: 8,),
-              OutlineButton(child: Text('复制'),onPressed: (){
-                ClipboardData data = ClipboardData(text: 'https://github.com/itlingmao/it_cat.git');
-                Clipboard.setData(data);
-              },),
+    return Material(
+      child: Container(
+        padding: EdgeInsets.all(10),
+        child: Column(
+          // mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Container(alignment: Alignment.center,
+                child: Text('本产品为Cat开发',style: TextStyle(fontWeight: FontWeight.w800),)),
+            SizedBox(height: 14,),
+            Text('项目已在GitHub上面开源',style: TextStyle(fontWeight: FontWeight.w300),),
+            Row(
+              children: <Widget>[
+                Text('https://github.com/itlingmao/it_cat.git',style: TextStyle(fontWeight: FontWeight.w300),),
+                SizedBox(width: 8,),
+                OutlineButton(child: Text('复制'),onPressed: (){
+                  ClipboardData data = ClipboardData(text: 'https://github.com/itlingmao/it_cat.git');
+                  Clipboard.setData(data);
+                },),
 
-            ],
-          ),
-          SizedBox(height: 2,),
-          Text('项目内容来自Flutter中文社区',style: TextStyle(fontWeight: FontWeight.w300),),
-        ],
+              ],
+            ),
+            SizedBox(height: 2,),
+            Text('项目内容来自Flutter中文社区',style: TextStyle(fontWeight: FontWeight.w300),),
+          ],
+        ),
       ),
     );
   }

@@ -22,25 +22,10 @@ abstract class CatBaseWidgetPageState<T extends CatBaseWidgetPage> extends State
   Color _themeColor = Colors.teal; //当前路由主题色
   @override
   Widget build(BuildContext context) {
-
-    // return Theme(
-    //   data:  ThemeData(
-    //       primarySwatch: _themeColor, //用于导航栏、FloatingActionButton的背景色等
-    //       iconTheme: IconThemeData(color: _themeColor) //用于Icon颜色
-    //   ),
-    //   child: isBuild == false ? _isBuildDefault(context)
-    //         : buildWidget(context),
-    // );
-    return MaterialApp(
-      theme: ThemeData(
-              primarySwatch: _themeColor, //用于导航栏、FloatingActionButton的背景色等
-              iconTheme: IconThemeData(color: _themeColor) //用于Icon颜色
-          ),
-      debugShowCheckedModeBanner: false,
-      home: isBuild == false ? _isBuildDefault(context)
+    return Material(
+      child: isBuild == false ? _isBuildDefault(context)
           : buildWidget(context),
     );
-
   }
 
   Widget _isBuildDefault(BuildContext context){

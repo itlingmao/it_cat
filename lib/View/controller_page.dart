@@ -5,41 +5,78 @@ import 'package:it_cat/View/home/home_controller_page.dart';
 
 import 'find/find_controller_page.dart';
 import 'mine/mine_controller_page.dart';
-
-class ControllerPage extends CatBaseWidgetPage {
+ 
+class ControllerPage extends  StatefulWidget{
   @override
-  _ControllerPageState getState() => _ControllerPageState();
+  State<StatefulWidget> createState() => _ControllerPageState();
+
 
 }
 
-class _ControllerPageState extends CatBaseWidgetPageState<ControllerPage> {
+class _ControllerPageState extends State<ControllerPage> {
 
 
   var _appBarTitles = ['首页', '发现', '我的'];
 
   int _tabIndex = 0;
 
+  Color _themeColor = Colors.teal; //当前路由主题色
+
    List<StatefulWidget> _pageList = [
-     HomeControllerPage('首页'),
+     HomeControllerPage(),
      FindControllerPage(),
      MineControllerPage(),
    ];
 
-   @override
-  void initState() {
-    super.initState();
-    title = '首页';
-    isBuild = true;
-  }
+   List<ThemeData> _listTheme = [
+     ThemeData(
+         primarySwatch: Colors.red, //用于导航栏、FloatingActionButton的背景色等
+         iconTheme: IconThemeData(color: Colors.red) //用于Icon颜色
+     ),
+     ThemeData(
+         primarySwatch: Colors.teal, //用于导航栏、FloatingActionButton的背景色等
+         iconTheme: IconThemeData(color: Colors.teal) //用于Icon颜色
+     ),
+     ThemeData(
+         primarySwatch: Colors.blue, //用于导航栏、FloatingActionButton的背景色等
+         iconTheme: IconThemeData(color: Colors.blue) //用于Icon颜色
+     ),
+   ];
+
+   int _indexTheme = 1;
 
   @override
-  Widget buildWidget(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(_appBarTitles[_tabIndex]),
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: _listTheme[_indexTheme],
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text(_appBarTitles[_tabIndex]),
+          actions: <Widget>[
+            PopupMenuButton(onSelected: (value){
+              if(value == '红色'){
+                _indexTheme = 0;
+              }else if(value == '绿色'){
+                _indexTheme = 1;
+              }else if(value == '蓝色'){
+                _indexTheme = 2;
+              }
+                setState(() {});
+              },itemBuilder: (BuildContext context){
+                  List title = ['红色','绿色','蓝色',];
+                  return title.map((e) => PopupMenuItem(
+                      child: Text(e),
+                      value: e,
+                    )
+                  ).toList();
+                },
+            ),
+          ],
+        ),
+        body: _pageList[_tabIndex],
+        bottomNavigationBar: _bottomView(),
       ),
-      body: _pageList[_tabIndex],
-      bottomNavigationBar: _bottomView(),
     );
   }
   Widget _bottomView(){

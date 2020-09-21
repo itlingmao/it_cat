@@ -2,10 +2,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:it_cat/Tools/tools_base_page.dart';
+import 'package:it_cat/Tools/tools_cat_inherited_widget.dart';
 import 'package:it_cat/View/home/button/home_button_page.dart';
 import 'package:it_cat/View/home/container/home_container_row_column_page.dart';
 import 'package:it_cat/View/home/customScrollView/home_custom_scroll_page.dart';
 import 'package:it_cat/View/home/gridView/home_staggered_grid_view_page.dart';
+import 'package:it_cat/View/home/inheritedWidget/home_inherited_widget_page.dart';
 import 'package:it_cat/View/home/list/home_list_page.dart';
 import 'package:it_cat/View/home/text/home_text_page.dart';
 import 'package:it_cat/View/home/text_field/home_text_field_page.dart';
@@ -100,7 +102,12 @@ class _HomeControllerPageState extends CatBaseWidgetPageState<HomeControllerPage
               Navigator.push(context, MaterialPageRoute(builder: (context){
                 return HomeCustomScrollPage();
               }));
+            }else if(index == 12){
+              Navigator.push(context, MaterialPageRoute(builder: (context){
+                return HomeInheritedWidgetPage();
+              }));
             }
+
 
           },
         );
@@ -120,6 +127,7 @@ class _HomeControllerPageState extends CatBaseWidgetPageState<HomeControllerPage
     'ListView',
     'GridView',
     'staggeredGridView',
-    'customScrollView'
+    'customScrollView',
+    'inheritedWidget',
   ];
 }

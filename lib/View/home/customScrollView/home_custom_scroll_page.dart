@@ -17,6 +17,8 @@ class _HomeCustomScrollPageState extends CatBaseWidgetPageState<HomeCustomScroll
 
   @override
   Widget buildWidget(BuildContext context) {
+    String image = "assets/images/ic_hot_spots.png";
+    // String image = "assets/images/wz.jpg";
     return Material(
       child: CustomScrollView(
         slivers: <Widget>[
@@ -28,9 +30,9 @@ class _HomeCustomScrollPageState extends CatBaseWidgetPageState<HomeCustomScroll
             pinned: true,
             expandedHeight: 250.0,
             flexibleSpace: FlexibleSpaceBar(
-              title: const Text('cusomScrollView'),
+              title: const Text('customScrollView'),
               background: Image.asset(
-                "assets/images/wz.jpg", fit: BoxFit.cover,),
+                image , fit: BoxFit.cover,),
             ),
           ),
 

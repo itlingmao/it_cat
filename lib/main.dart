@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:it_cat/Tools/tools_cat_inherited_widget.dart';
 import 'package:it_cat/View/controller_page.dart';
 
 void main() {
-  runApp(ControllerPage());
+  runApp(
+      CatInheritedWidget(
+        data: CatShareData(),
+        child: ControllerPage(),
+      ),
+  );
 }
 
 class MyApp extends StatelessWidget {

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:it_cat/Tools/tools_base_page.dart';
+import 'package:it_cat/Tools/tools_cat_inherited_widget.dart';
 
 class FindControllerPage extends CatBaseWidgetPage {
   @override

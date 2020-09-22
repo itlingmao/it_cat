@@ -49,6 +49,7 @@ class _ControllerPageState extends State<ControllerPage> {
   //创建key
   GlobalKey<ScaffoldState> _globalKey = GlobalKey();
 
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -57,7 +58,15 @@ class _ControllerPageState extends State<ControllerPage> {
       home: Scaffold(
         key: _globalKey,
         drawer: HomeDrawer(),
+        endDrawer: Container(	//显示右侧 侧边栏
+          width: 200,	//显示侧边栏的宽度
+          color: Colors.blue,	//背景颜色
+          child: Column(children: <Widget>[
+            //一些布局样式
+          ],),
+        ),
         appBar: AppBar(
+          centerTitle: true,
           title: Text(_appBarTitles[_tabIndex]),
           leading: IconButton(
             icon: Icon(Icons.dashboard,),
@@ -66,25 +75,10 @@ class _ControllerPageState extends State<ControllerPage> {
             },
           ),
           actions: <Widget>[
-            PopupMenuButton(onSelected: (value){
-              if(value == '红色'){
-                _indexTheme = 0;
-              }else if(value == '绿色'){
-                _indexTheme = 1;
-              }else if(value == '蓝色'){
-                _indexTheme = 2;
-              }
-                setState(() {});
-              },itemBuilder: (BuildContext context){
-                  List title = ['红色','绿色','蓝色',];
-                  return title.map((e) => PopupMenuItem(
-                      child: Text(e),
-                      value: e,
-                    )
-                  ).toList();
-                },
-            ),
-
+             _popupMenu(),
+            IconButton(icon: Icon(Icons.apps),onPressed: (){
+              _globalKey.currentState.openEndDrawer();
+            },),
           ],
         ),
         body: _pageList[_tabIndex],
@@ -122,6 +116,27 @@ class _ControllerPageState extends State<ControllerPage> {
           },
         ),
       ),
+    );
+  }
+
+  Widget _popupMenu() {
+    return PopupMenuButton(onSelected: (value){
+      if(value == '红色'){
+        _indexTheme = 0;
+      }else if(value == '绿色'){
+        _indexTheme = 1;
+      }else if(value == '蓝色'){
+        _indexTheme = 2;
+      }
+      setState(() {});
+    },itemBuilder: (BuildContext context){
+      List title = ['红色','绿色','蓝色',];
+      return title.map((e) => PopupMenuItem(
+        child: Text(e),
+        value: e,
+      )
+      ).toList();
+    },
     );
   }
 }

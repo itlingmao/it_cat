@@ -21,10 +21,16 @@ class _HomeListViewPageState extends CatBaseWidgetPageState<HomeListViewPage> {
   }
   @override
   Widget buildWidget(BuildContext context) {
-    return ListView.separated(
-        itemBuilder: _itemBuilder,
-        separatorBuilder: (context, index) => Divider(height: .5,color: Colors.black26,),
-        itemCount: _words.length);
+    return RefreshIndicator(
+      onRefresh: () async{
+        _retrieveData();
+        return null;
+      },
+      child: ListView.separated(
+          itemBuilder: _itemBuilder,
+          separatorBuilder: (context, index) => Divider(height: .5,color: Colors.black26,),
+          itemCount: _words.length),
+    );
   }
 
   Widget _itemBuilder(context, index){

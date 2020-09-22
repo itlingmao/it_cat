@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:it_cat/Tools/tools_base_page.dart';
 import 'package:it_cat/Tools/tools_cat_inherited_widget.dart';
 import 'package:it_cat/View/home/home_controller_page.dart';
+import 'package:it_cat/View/home/home_drawer_page.dart';
 
 import 'find/find_controller_page.dart';
 import 'mine/mine_controller_page.dart';
@@ -45,14 +46,25 @@ class _ControllerPageState extends State<ControllerPage> {
    ];
 
    int _indexTheme = 1;
+  //创建key
+  GlobalKey<ScaffoldState> _globalKey = GlobalKey();
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: _listTheme[_indexTheme],
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        key: _globalKey,
+        drawer: HomeDrawer(),
         appBar: AppBar(
           title: Text(_appBarTitles[_tabIndex]),
+          leading: IconButton(
+            icon: Icon(Icons.dashboard,),
+            onPressed: (){
+              _globalKey.currentState.openDrawer();
+            },
+          ),
           actions: <Widget>[
             PopupMenuButton(onSelected: (value){
               if(value == '红色'){
@@ -72,6 +84,7 @@ class _ControllerPageState extends State<ControllerPage> {
                   ).toList();
                 },
             ),
+
           ],
         ),
         body: _pageList[_tabIndex],

@@ -9,6 +9,7 @@ import 'package:it_cat/View/home/customScrollView/home_custom_scroll_page.dart';
 import 'package:it_cat/View/home/gridView/home_staggered_grid_view_page.dart';
 import 'package:it_cat/View/home/inheritedWidget/home_inherited_widget_page.dart';
 import 'package:it_cat/View/home/list/home_list_page.dart';
+import 'package:it_cat/View/home/streamBuilder/home_stream_builder_page.dart';
 import 'package:it_cat/View/home/text/home_text_page.dart';
 import 'package:it_cat/View/home/text_field/home_text_field_page.dart';
 import 'package:it_cat/View/home/wrap/home_wrap_page.dart';
@@ -106,6 +107,10 @@ class _HomeControllerPageState extends CatBaseWidgetPageState<HomeControllerPage
               Navigator.push(context, MaterialPageRoute(builder: (context){
                 return HomeInheritedWidgetPage();
               }));
+            }else if(index == 13){
+              Navigator.push(context, MaterialPageRoute(builder: (context){
+                return HomeStreamBuilderPage();
+              }));
             }
 
 
@@ -129,5 +134,6 @@ class _HomeControllerPageState extends CatBaseWidgetPageState<HomeControllerPage
     'staggeredGridView',
     'customScrollView',
     'inheritedWidget',
+    'streamBuilder',
   ];
 }

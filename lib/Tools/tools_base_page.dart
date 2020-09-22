@@ -51,6 +51,7 @@ abstract class CatBaseWidgetPageState<T extends CatBaseWidgetPage> extends State
       },),
     );
   }
+
 }
 enum CatDirection{
   vertical,

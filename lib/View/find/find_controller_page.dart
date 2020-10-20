@@ -20,7 +20,7 @@ class _FindControllerPageState extends CatBaseWidgetPageState<FindControllerPage
   Widget buildWidget(BuildContext context) {
     return Material(
       child: Container(
-        child: Text('用来写组合控件的地方！'),
+        child: Text('用来写组合控件的地方！2'),
       ),
     );
   }

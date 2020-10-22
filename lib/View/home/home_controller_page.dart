@@ -17,6 +17,8 @@ import 'package:it_cat/View/home/text_field/home_text_field_page.dart';
 import 'package:it_cat/View/home/wrap/home_wrap_page.dart';
 
 import 'alert_dialog/home_alert_dialog_page.dart';
+import 'bar/fade_app_bar_page.dart';
+import 'bar/fade_app_bar_page2.dart';
 import 'bar/navigation_bar_page.dart';
 import 'bar/scroll_bar.dart';
 import 'container/home_container_page.dart';
@@ -127,7 +129,12 @@ class _HomeControllerPageState extends CatBaseWidgetPageState<HomeControllerPage
               Navigator.push(context, MaterialPageRoute(builder: (context){
                 return HomeScrollBar();
               }));
+            }else if(index == 17){
+              Navigator.push(context, MaterialPageRoute(builder: (context){
+                return FadeAppBarWidget2();
+              }));
             }
+
 
 
           },
@@ -154,5 +161,6 @@ class _HomeControllerPageState extends CatBaseWidgetPageState<HomeControllerPage
     'pointer',
     'gesture',
     'HomeNavigationBar',
+    'FadeAppBarWidget',
   ];
 }

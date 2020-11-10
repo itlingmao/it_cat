@@ -11,6 +11,7 @@ import 'package:it_cat/View/home/inheritedWidget/home_inherited_widget_page.dart
 import 'package:it_cat/View/home/list/home_list_page.dart';
 import 'package:it_cat/View/home/pointer/home_gesture_page.dart';
 import 'package:it_cat/View/home/pointer/home_pointer_page.dart';
+import 'package:it_cat/View/home/screenshot/home_screenshot_page.dart';
 import 'package:it_cat/View/home/streamBuilder/home_stream_builder_page.dart';
 import 'package:it_cat/View/home/text/home_text_page.dart';
 import 'package:it_cat/View/home/text_field/home_text_field_page.dart';
@@ -133,6 +134,10 @@ class _HomeControllerPageState extends CatBaseWidgetPageState<HomeControllerPage
               Navigator.push(context, MaterialPageRoute(builder: (context){
                 return FadeAppBarWidget2();
               }));
+            }else if(index == 18){
+              Navigator.push(context, MaterialPageRoute(builder: (context){
+                return HomeScreenshotPage();
+              }));
             }
 
 
@@ -162,5 +167,7 @@ class _HomeControllerPageState extends CatBaseWidgetPageState<HomeControllerPage
     'gesture',
     'HomeNavigationBar',
     'FadeAppBarWidget',
+    'screenshot',
+
   ];
 }

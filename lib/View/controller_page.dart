@@ -11,8 +11,6 @@ import 'mine/mine_controller_page.dart';
 class ControllerPage extends  StatefulWidget{
   @override
   State<StatefulWidget> createState() => _ControllerPageState();
-
-
 }
 
 class _ControllerPageState extends State<ControllerPage> {
